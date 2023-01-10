@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
+import {MatDialog} from '@angular/material/dialog';import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SeancesCoursComponent } from './seances-cours/seances-cours.component';
 import { RegroupementComponent } from './regroupement/regroupement.component';
 import { PromotionsGroupeComponent } from './promotions-groupe/promotions-groupe.component';
-import { PromotionGroupeComponent } from './entities/promotion-groupe/promotion-groupe.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,11 +13,13 @@ import { PromotionGroupeComponent } from './entities/promotion-groupe/promotion-
     SeancesCoursComponent,
     RegroupementComponent,
     PromotionsGroupeComponent,
-    PromotionGroupeComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    MatDialog,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

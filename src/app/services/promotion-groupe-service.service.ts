@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PromotionGroupeServiceService {
-  baseUrl:string="localhost:8080/api/v1/PromotionGroupe"
+  baseUrl:string="http://127.0.0.1:8080/api/v1/PromotionGroupe"
   constructor(public httpClient:HttpClient) {
   }savePromotionGroupe(promotionGroupe:PromotionGroupe)
   {
@@ -18,7 +18,7 @@ export class PromotionGroupeServiceService {
   }
   getById(Id:number)
   {
-    const url = this.baseUrl+`/getLevel/`+Id;
+    const url = this.baseUrl+`/getPromotion/`+Id;
     return this.httpClient.get(url).pipe(
       map((response:any) => response as PromotionGroupe)
     );
@@ -32,7 +32,7 @@ export class PromotionGroupeServiceService {
   }
   deletePromotion(id:number)
   {
-    const url = this.baseUrl+`/delete/`+id;
+    const url = this.baseUrl+`/deletePromotion/`+id;
     return this.httpClient.delete(url).pipe(
       map((response:any) => response as any)
     );

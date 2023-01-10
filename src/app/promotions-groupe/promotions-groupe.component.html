@@ -1,1 +1,52 @@
-<p>promotions-groupe works!</p>
+<div class="container" id="main-container">
+  <button (click)="addPromotionGroupe()" class="btn btn-info" style="margin-left: 10px">ajouter</button>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Code</th>
+        <th>Nom Du Groupe</th>
+        <th>Niveau</th>
+        <th>Nombre D'Etudiants</th>
+        <th>Date de Demmarage</th>
+        <th>Date De Cloture</th>
+        <th>Nom Du Diplome</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let promotions of promotionsListe">
+        <td>{{ promotions.codeGroupe }}</td>
+        <td>{{ promotions.nomGroupe }}</td>
+        <td>{{ promotions.niveau }}</td>
+        <td>{{ promotions.nbrEtudiants }}</td>
+        <td>{{ promotions.dateDemarrage }}</td>
+        <td>{{ promotions.dateCloture }}</td>
+        <td>{{ promotions.nomDiplome }}</td>
+        <td>
+          <a type="button" class="btn btn-sm btn-danger" (click)="deletePromotionGroupe(promotions.codeGroupe)">
+            supprimer</a>&nbsp;
+          <a type="button" class="btn btn-sm btn-warning"
+            (click)="updatePromotionGroupe(promotions.codeGroupe)">Modifier</a>
+          <button (click)="detailsPromotionGroupe(promotions.codeGroupe,content)" class="btn btn-info"
+            style="margin-left: 10px">Detail</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #content let-modal>
+  <span class="fa-stack fa-1x" (click)="modal.dismiss('cancel click')"
+    style="position: absolute; top: -25px;right: -14px;padding: 10px;z-index: 1111; cursor: pointer;">
+    <i class="fa fa-circle fa-stack-2x" style=" -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+             background-color: #d1ef12; ">
+    </i>
+    <i class=" fa  fa-times fa-stack-1x " style="color: black;font-size: 19px;"></i>
+  </span>
+  <div class="modal-body">
+    <p class="modal-title">Details de la promotion groupe</p>
+    <div class="modal-btns">
+      <button type="button" class=" btn-modal" (click)="modal.dismiss('cancel click')">Ok</button>
+    </div>
+  </div>
+</ng-template>
